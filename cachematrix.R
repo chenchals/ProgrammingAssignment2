@@ -15,7 +15,11 @@ makeCacheMatrix <- function(x = matrix()) {
   
   matInverse <- NULL
   
-  set <- function(mat){
+  if(!is.matrix(x) || nrow(x)!=ncol(x) || !is.numeric(x) ){
+    stop('x must be a square numeric matrix')
+  }
+  
+  set <- function(x){
     x <<- mat
     matInverse <<- NULL
   }
