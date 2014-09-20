@@ -19,8 +19,8 @@ makeCacheMatrix <- function(x = matrix()) {
     stop('x must be a square numeric matrix')
   }
   
-  set <- function(x){
-    x <<- mat
+  set <- function(y){
+    x <<- y
     matInverse <<- NULL
   }
   
