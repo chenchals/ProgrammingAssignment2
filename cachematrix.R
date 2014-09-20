@@ -20,8 +20,13 @@ makeCacheMatrix <- function(x = matrix()) {
   }
   
   set <- function(y){
-    x <<- y
-    matInverse <<- NULL
+    if(!is.null(x) && is.matrix(y) && dim(x) == dim(y) && all(x == y))
+    {
+      message("cached matrix and 'y' are identical")
+    }else{
+      x <<- y
+      matInverse <<- NULL
+    }
   }
   
   get <- function(){
